@@ -1,0 +1,25 @@
+/* Sass */
+body {
+  font-family: helvetica,arial,sans-serif;
+}
+
+header {
+  height: 100px;
+  background: grey;
+  max-width: 100%;
+}
+
+.top-section {
+  background: blue;
+  width: 100%;
+  color: white;
+  font-size: 14px;
+}
+
+.section {
+  background: grey;
+  width: 100%;
+  color: white;
+  font-size: 14px;
+}
+/*# sourceMappingURL=style.css.map */
