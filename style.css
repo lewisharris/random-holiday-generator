@@ -1,25 +1,149 @@
 /* Sass */
-body {
+body, html {
   font-family: helvetica,arial,sans-serif;
+  font-size: 100%;
+  margin: 0px auto;
+  text-align: center;
+  padding: 0px;
+  background: #1a1a1a;
+  scroll-behavior: smooth;
 }
 
 header {
-  height: 100px;
-  background: grey;
+  height: 100vh;
   max-width: 100%;
+  margin: 0px auto;
 }
 
-.top-section {
-  background: blue;
-  width: 100%;
-  color: white;
-  font-size: 14px;
+header h1 {
+  color: #1a1a1a;
+  margin: 0px auto;
+  font-size: 3rem;
+  line-height: 2;
+  text-align: left;
+  font-weight: lighter;
+  padding-left: 1%;
 }
 
-.section {
-  background: grey;
+#intro {
+  margin: 25vh auto 25vh auto;
+  padding: 5%;
+  width: 50vw;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+#intro h1 {
   width: 100%;
+  font-size: 2.5rem;
+  text-align: center;
   color: white;
-  font-size: 14px;
+}
+
+#intro p {
+  color: white;
+  font-weight: lighter;
+  width: 75%;
+  margin: 5% auto;
+}
+
+#find {
+  border: 2px solid #31FFF9;
+  border-radius: 5rem;
+  max-width: 300px;
+  min-width: 280px;
+  color: white;
+  height: 4rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: none;
+}
+
+#find:hover {
+  border-color: white;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#see-below {
+  width: 30px;
+  height: 30px;
+  border-left: 3px solid white;
+  border-bottom: 3px solid white;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  margin: 0px auto;
+  cursor: pointer;
+  position: relative;
+  opacity: 0.7;
+}
+
+#see-below:hover {
+  border-left: 3px solid #31FFF9;
+  border-bottom: 3px solid #31FFF9;
+}
+
+#snapshot-container {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background-image: url("images/plane.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0% auto;
+  position: absolute;
+  bottom: 0px;
+}
+
+#try-again {
+  position: absolute;
+  top: 3vh;
+  right: 3vw;
+  z-index: 4;
+  font-size: 0.8rem;
+  line-height: 1;
+  padding: 2vh;
+  border: 2px solid #31FFF9;
+  border-radius: 5rem;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+#results {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: visibility 0s, opacity 0.5s ease-in-out;
+  transition: visibility 0s, opacity 0.5s ease-in-out;
+  font-size: 3rem;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  margin: 0px auto;
+  line-height: 12rem;
+}
+
+#go-to {
+  margin: 0px 10%;
+  padding-top: 10vh;
+  font-size: 3rem;
+  font-weight: lighter;
+  opacity: 0.8;
+}
+
+#result {
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+#about {
+  height: 0px;
+  color: white;
+  width: 100%;
+  background: white;
+  margin: 0px auto;
+  overflow: scroll;
 }
 /*# sourceMappingURL=style.css.map */

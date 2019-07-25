@@ -1,80 +1,174 @@
 var destinations = [
-    {city:'Hanoi',
-    country:'Vietnam',
-    continent:'Asia',
+    {city:'Hong Kong',
+    country:'',
+    continent:'asia',
+    weather:'hot',
     environment:'city',
     reason:'culture',
-    budget:'cheap'
+    budget:'not-fussed',
+    image:'hong-kong'
+    },
+    {city:'Luang Prabang',
+    country:'Laos',
+    continent:'asia',
+    weather:'hot',
+    environment:'outdoors',
+    reason:'culture',
+    budget:'cheap',
+    image:'luang-prabang'
+    },
+    {city:'Phnom Penh',
+    country:'Cambodia',
+    continent:'asia',
+    weather:'hot',
+    environment:'city',
+    reason:'culture',
+    budget:'cheap',
+    image:'phnom-penh'
+    },
+    {city:'Penang',
+    country:'Malaysia',
+    continent:'asia',
+    weather:'hot',
+    environment:'city',
+    reason:'culture',
+    budget:'cheap',
+    image:'penang'
+    },
+    {city:'Singapore',
+    country:'',
+    continent:'asia',
+    weather:'hot',
+    environment:'city',
+    reason:'culture',
+    budget:'expensive',
+    image:'singapore'
+    },
+    {city:'Sydney',
+    country:'Australia',
+    continent:'pacific',
+    weather:'dont-care',
+    environment:'city',
+    reason:'culture',
+    budget:'expensive',
+    image:'sydney'
+    },
+    {city:'Hanoi',
+    country:'Vietnam',
+    continent:'asia',
+    weather:'dont-care',
+    environment:'city',
+    reason:'culture',
+    budget:'cheap',
+    image:'hanoi'
     },
     {city:'New York',
     country:'USA',
     continent:'America',
+    weather:'dont-care',
     environment:'city',
     reason:'culture',
-    budget:'expensive'
+    budget:'expensive',
+    image:'new-york'
     },
     {city:'London',
     country:'UK',
     continent:'europe',
+    weather:'dont-care',
     environment:'city',
     reason:'culture',
-    budget:'expensive'
+    budget:'expensive',
+    image:'london'
     },
     {city:'Tokyo',
     country:'Japan',
-    continent:'Asia',
+    continent:'asia',
+    weather:'dont-care',
     environment:'city',
     reason:'culture',
-    budget:'expensive'
+    budget:'expensive',
+    image:'tokyo'
     },
-    {city:'Reykjavik',
+    {city:'Rekyjavik',
     country:'Iceland',
     continent:'europe',
+    weather:'cold',
     environment:'outdoors',
     reason:'adventure',
-    budget:'expensive'
+    budget:'expensive',
+    image:'rekyjavik'
     },
     {city:'Bangkok',
     country:'Thailand',
     continent:'asia',
+    weather:'hot',
     environment:'city',
     reason:'culture',
     budget:'cheap',
-    info:'The city is huge'
+    image:'bangkok'
     },
-    {city:'Birmingham',
-    country:'UK',
-    continent:'europe',
+    {city:'San Francisco',
+    country:'USA',
+    continent:'america',
+    weather:'dont-care',
     environment:'city',
-    reason:'culture',
-    budget:'average',
+    reason:'city',
+    budget:'expensive',
+    image:'san-francisco'
+    },
+    {city:'Queenstown',
+    country:'New Zealand',
+    continent:'pacific',
+    weather:'dont-care',
+    environment:'outdoors',
+    reason:'adventure',
+    budget:'expensive',
+    image:'queenstown'
+    },
+    {city:'Orlando',
+    country:'USA',
+    continent:'america',
+    weather:'hot',
+    environment:'outdoors',
+    reason:'adventure',
+    budget:'expensive',
+    image:'orlando'
     }
 ];
 
+var continentPicker = 'pacific';
+var find = document.getElementById('find');
+var landingFind = document.getElementById('landing-find');
+var results = document.getElementById('results');
+var result = document.getElementById('result');
+var image = document.getElementById('snapshot-container');
+var details = document.getElementById('details');
+var intro = document.getElementById('intro');
+var about = document.getElementById('about');
+var tryAgain = document.getElementById('try-again');
 
-var budget = document.getElementsByName('budget');
+// Country access
+var randomiser = Math.floor(Math.random()*destinations.length);
+var city = destinations[randomiser].city;
+var country = destinations[randomiser].country;
 
-for(i=0;i<budget.length; i++){
-    if(budget[i].value == 'average'){
-        console.log(budget[i].value + ' logged')
+
+function countryFinder(){
+    if(destinations[randomiser].country == ''){
+        result.innerHTML = city.toUpperCase();
     }
-}
-function search(){
-        for(i=0;i<destinations.length; i++){
-             if(destinations[i].value === 'expensive'){
-                  console.log(destinations[i].city);
-                }
-            };
+    else{
+        result.innerHTML = city.toUpperCase() + ', ' + destinations[randomiser].country;
+    }
+    intro.style.display = 'none';
+    image.style.backgroundImage = "url('images/" + destinations[randomiser].image + ".jpeg')";
+    results.style.opacity = 1;
+    results.style.visibility = 'visible';
+    about.style.height = '100vh';
 };
 
 
-//Random destination selector
-var randomiser = destinations[Math.floor(Math.random()*destinations.length)];
 
+find.addEventListener('click',countryFinder);
 
-
-//Final Results
-const result = document.getElementById('result');  
-const details = document.getElementById('details');
-result.innerHTML = randomiser.city + ',' + randomiser.country;
-details.innerHTML = result.innerHTML + ' is in ' + randomiser.continent + " " +randomiser.info;
+tryAgain.innerHTML = 'Don\'t fancy ' + city + '?';
