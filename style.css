@@ -1,21 +1,21 @@
+@import url("https://fonts.googleapis.com/css?family=Gothic+A1&display=swap");
 /* Sass */
 body, html {
-  font-family: helvetica,arial,sans-serif;
+  font-family: 'Gothic A1', sans-serif;
   font-size: 100%;
   margin: 0px auto;
   text-align: center;
   padding: 0px;
   background: #1a1a1a;
   scroll-behavior: smooth;
-}
-
-header {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   height: 100vh;
   max-width: 100%;
   margin: 0px auto;
 }
 
-header h1 {
+body h1, html h1 {
   color: #1a1a1a;
   margin: 0px auto;
   font-size: 3rem;
@@ -26,9 +26,10 @@ header h1 {
 }
 
 #intro {
-  margin: 25vh auto 25vh auto;
+  margin: 5% auto;
   padding: 5%;
-  width: 50vw;
+  min-width: 50vw;
+  max-width: 90vw;
   background: rgba(0, 0, 0, 0.3);
 }
 
@@ -44,18 +45,30 @@ header h1 {
   font-weight: lighter;
   width: 75%;
   margin: 5% auto;
+  line-height: 1.5;
+}
+
+#intro .light {
+  font-weight: lighter;
+}
+
+.hide {
+  display: none;
 }
 
 #find {
+  margin: 0px auto;
   border: 2px solid #31FFF9;
   border-radius: 5rem;
   max-width: 300px;
-  min-width: 280px;
+  width: 50%;
+  min-width: 200px;
   color: white;
   height: 4rem;
   font-size: 1.5rem;
   cursor: pointer;
   background: none;
+  text-align: center;
 }
 
 #find:hover {
@@ -136,6 +149,8 @@ header h1 {
 #result {
   font-size: 5rem;
   font-weight: bold;
+  width: 90%;
+  margin: 0px auto;
 }
 
 #about {
@@ -145,5 +160,37 @@ header h1 {
   background: white;
   margin: 0px auto;
   overflow: scroll;
+}
+
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 60%;
+  }
+  #go-to {
+    font-size: 2.5rem;
+  }
+  #result {
+    font-size: 3rem;
+  }
+  #results {
+    text-align: center;
+  }
+  #intro {
+    width: 90%;
+    padding: 10px;
+  }
+  #intro h1 {
+    line-height: 1;
+  }
+  #intro p {
+    font-size: 1.5rem;
+  }
+  #try-again {
+    font-size: 1.2rem;
+    margin: 10px auto 0px auto;
+    position: relative;
+    top: 0;
+    right: 0;
+  }
 }
 /*# sourceMappingURL=style.css.map */
