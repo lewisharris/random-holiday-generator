@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Gothic+A1&display=swap');
+
 /* Sass */
 $primaryBg : #1a1a1a;
 $secondaryBg: blue;
@@ -9,17 +11,16 @@ $four-block:4rem;
 $styled-border:2px solid #31FFF9;
 
 
+
 body,html{
-    font-family:helvetica,arial,sans-serif;
+    font-family: 'Gothic A1', sans-serif;
     font-size: 100%;
     margin:0px auto;
     text-align: center;
     padding:0px;
     background:$primaryBg;
     scroll-behavior: smooth;
-}
-
-header{
+    box-sizing: border-box;
     height:100vh;
     max-width:$device;
     margin:0px auto;
@@ -38,10 +39,12 @@ header{
 
 
 #intro{
-    margin:25vh auto 25vh auto;
+    margin:5% auto;
     padding:5%;
-    width:50vw;
+    min-width:50vw;
+    max-width:90vw;
     background:rgba(0,0,0,0.3);
+
 
     h1{
     width:100%;
@@ -55,19 +58,30 @@ header{
     font-weight: lighter;
     width:75%;
     margin:5% auto;
+    line-height: 1.5;
+    }
+    .light{
+        font-weight:lighter;
     }
 }
 
+.hide{
+  display:none;
+}
+
 #find{
+    margin:0px auto;
     border: $styled-border;
     border-radius: 5rem;
     max-width:300px;
-    min-width:280px;
+    width:50%;
+    min-width:200px;
     color:$light-text;
     height:$four-block;
     font-size:1.5rem;
     cursor: pointer;
     background:none;
+    text-align: center;
 }
 #find:hover{
     border-color:white;
@@ -118,7 +132,6 @@ header{
     border-radius: 5rem;
     background: $see-through;
     cursor: pointer;
-
 }
 
 #results{
@@ -144,6 +157,8 @@ header{
 #result{
     font-size:5rem;
     font-weight:bold;
+    width:90%;
+    margin:0px auto;
 }
 
 #about{
@@ -154,3 +169,37 @@ header{
     margin: 0px auto;
     overflow: scroll;
 }
+
+@media only screen and (max-width:600px){
+    html{
+        font-size:60%;
+    }
+    #go-to{
+        font-size:2.5rem;
+    }
+    #result{
+        font-size:3rem;
+    }
+    #results{
+        text-align: center;
+    }
+    #intro{
+        width:90%;
+        padding:10px;
+        h1{
+            line-height:1;
+        }
+
+        p{
+            font-size: 1.5rem;
+        }
+    }
+    #try-again{
+        font-size:1.2rem;
+        margin:10px auto 0px auto;
+        position: relative;
+        top:0;
+        right:0;
+    }
+}
+
