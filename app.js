@@ -19,7 +19,7 @@ new Dest('London','UK','london'),
 new Dest('Reykjavik','Iceland','reykjavik'),
 new Dest('Toyko','Japan','tokyo'),
 new Dest('Bangkok','Thailand','bangkok'),
-new Dest('Hong Kong','USA','san-francisco'),
+new Dest('San Francisco','USA','san-francisco'),
 new Dest('Queenstown','New Zealand','queenstown'),
 new Dest('Orlando','USA','orlando')
 ];
@@ -43,7 +43,7 @@ function countryFinder(){
         result.innerHTML = city.toUpperCase() + ', ' + destinations[randomiser].country;
     }
     intro.className = 'hide';
-    image.style.backgroundImage = "url('images/" + destinations[randomiser].image + ".jpeg')";
+    image.style.backgroundImage = `url('images/${destinations[randomiser].image}.jpeg')`;
     results.style.opacity = 1;
     results.style.visibility = 'visible';
     tryAgain.innerHTML = 'Don\'t fancy ' + city + '?';
