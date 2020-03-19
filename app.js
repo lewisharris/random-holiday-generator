@@ -24,6 +24,7 @@ new Dest('Queenstown','New Zealand','queenstown'),
 new Dest('Orlando','USA','orlando')
 ];
 
+
 function getId(e){return document.getElementById(e)} //id shortcut
 var find = getId('find');
 var results = getId('results');
@@ -32,24 +33,36 @@ var image = getId('snapshot-container');
 var intro = getId('intro');
 var tryAgain = getId('try-again');
 
-function countryFinder(){
-    var randomiser = Math.floor(Math.random()*destinations.length);
-    var city = destinations[randomiser].city;
-    var country = destinations[randomiser].country;
-    if(destinations[randomiser].country == ''){
-        result.innerHTML = city.toUpperCase();
+
+document.getElementById('find').addEventListener('click',loadCountries);
+
+document.getElementById('try-again').addEventListener('click', loadCountries);
+
+function loadCountries(){
+    var request = new XMLHttpRequest();
+    request.open('GET','https://restcountries.eu/rest/v2/all/', true);
+    request.onload = () => {
+        if(request.status == 200){
+            intro.className = 'hide';
+            results.style.opacity = 1;
+            results.style.visibility = 'visible';
+            var data = JSON.parse(request.responseText);
+            var random = Math.floor(Math.random()* data.length)
+            var city =  data[random].capital;
+            var country =  data[random].name;
+            var flag = data[random].flag;
+            if(city == ''){
+                result.innerHTML = country.toUpperCase();
+            }
+            else{
+                result.innerHTML = `${city.toUpperCase()}, ${country}`
+            }
+            image.style.backgroundImage = `url(${flag})`
+            tryAgain.innerHTML = 'Don\'t fancy ' + city + '?';
+        }
     }
-    else{
-        result.innerHTML = city.toUpperCase() + ', ' + destinations[randomiser].country;
-    }
-    intro.className = 'hide';
-    image.style.backgroundImage = `url('images/${destinations[randomiser].image}.jpeg')`;
-    results.style.opacity = 1;
-    results.style.visibility = 'visible';
-    tryAgain.innerHTML = 'Don\'t fancy ' + city + '?';
-};
+    request.send();
+}
 
 
 
-find.addEventListener('click',countryFinder);
-tryAgain.addEventListener('click', countryFinder);
